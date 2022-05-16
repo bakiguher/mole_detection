@@ -1,4 +1,3 @@
-# some utilities
 import os
 import numpy as np
 from util import base64_to_pil
@@ -29,6 +28,9 @@ labels = {
 app = Flask(__name__)
 
 def get_MoleClassifierModel():
+    '''
+    Function to load saved model and weights
+    '''
     model_json = open(Model_json, 'r')
     loaded_model_json = model_json.read()
     model_json.close()

@@ -1,6 +1,6 @@
-"""
-Utils 
-"""
+'''
+Some utilities to convert image data
+'''
 import re
 import base64
 
