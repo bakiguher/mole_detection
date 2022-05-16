@@ -5,3 +5,4 @@
 *.whl
 moleenv/
 data/
+__pycache__/
