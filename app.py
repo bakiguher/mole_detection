@@ -2,17 +2,13 @@ import os
 import numpy as np
 from util import base64_to_pil
 
-
-# Flask
 from flask import Flask, request, render_template,  jsonify, redirect
-
-#tensorflow
 import tensorflow as tf
-from tensorflow.keras.models import model_from_json
+from tensorflow.python.keras.models import model_from_json
 from tensorflow.keras.preprocessing import image
 
-Model_json = "model.json"
-Model_weigths = "model.h5"
+Model_json = "./model/model.json"
+Model_weigths = "./model/model.h5"
 labels = {
     0: 'Melanocytic nevi (nv)',
     1: 'Melanoma (mel)',
@@ -22,7 +18,6 @@ labels = {
     5: 'Vascular lesions (vasc)',
     6: 'Dermatofibroma (df)'
 }
-
 
 
 app = Flask(__name__)
@@ -62,7 +57,7 @@ def index():
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     '''
-    predict function
+    predict function, makes the prediction and returns highest predicted in json format
     '''
     if request.method == 'POST':
         # Get the image from post request
@@ -73,7 +68,7 @@ def predict():
 
         # Make prediction
         preds = model_predict(img, model)
-       #max probable       
+        #max probable       
         pred_probabilty = " % {:.2f}".format(np.amax(preds)*100) 
         max_index_col = np.argmax(preds)
                     

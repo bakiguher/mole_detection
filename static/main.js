@@ -12,7 +12,7 @@ fileDrag.addEventListener("drop", fileSelectHandler, false);
 fileSelect.addEventListener("change", fileSelectHandler, false);
 
 function fileDragHover(e) {
-  // prevent default behaviour
+  // prevent default
   e.preventDefault();
   e.stopPropagation();
 
@@ -20,7 +20,7 @@ function fileDragHover(e) {
 }
 
 function fileSelectHandler(e) {
-  // handle file selecting
+  // file selecting
   var files = e.target.files || e.dataTransfer.files;
   fileDragHover(e);
   for (var i = 0, f; (f = files[i]); i++) {
@@ -29,7 +29,7 @@ function fileSelectHandler(e) {
 }
 
 //========================================================================
-// Web page elements for functions to use
+// Web page elements for functions
 //========================================================================
 
 var imagePreview = document.getElementById("image-preview");
@@ -54,7 +54,7 @@ function submitImage() {
   loader.classList.remove("hidden");
   imageDisplay.classList.add("loading");
 
-  // call the predict function of the backend
+  
   predictImage(imageDisplay.src);
 }
 

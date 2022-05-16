@@ -1,129 +1,163 @@
-# AI-track
+# Mole detection
 
-## Course Overview
+- Repository: `mole_detection`
+- Type of Challenge: `Consolidation`
+- Duration: `8 days`
+- Deadline: `24/05/2022 4:30` **(code)**
+- Presentation: `25/05/2022 1:30 PM`
+- Challenge: Solo
 
-The course's main purpose is to _bridge the gap_ between curious and solution oriented _individuals_ and _companies_ in need of capable people. It is to provide the most fundamental knowledge to the students so that they can understand what AI is. Due to limited time, we will try to eliminate theoretic proofs and formal notations as far as possible, so that the students can get the full picture of AI easily.
+![AI care!](./assets/ai-care.jpg)
 
-![Timeline](assets/becode_pedagogy_timeline_ai.jpg)
+## Mission objectives
 
-Note: The ultimate goal is the mindset, not specific tools. For that reason the timeline above may vary during the course and the tech mentioned might be replaced by others or not seen at all.
+- Be able to apply a CNN in a real context
+- Be able to preprocess data for computer vision
+- Be able to evaluate your model (split dataset, confusion matrix, hyper-parameter tuning, etc)
+- Be able to visualize your model results and evaluations (properly labeled, titled...)
+- Be able to deploy your solution in an simple APP locally or on Heroku
 
-| Content                                         | Description                                                                                                                           |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| [Tech Talks](https://my.becode.org/tech-talks/) | Small daily talks organized by the learners or coaches on theoretical concepts, interesting related tech, cool findings, etc…         |
-| Workshops  | Interactive session given by the trainees on subject they want to teach their colleagues.                                             |
-| Red Line                                        | A growing project during all the course where the team role-plays as a startup facing growing AI problems (consolidation challenges). |
-| Case Study                                      | Study of real life cases of AI, well known hacks and advice from professionals.                                                       |
+## The Mission
 
-| Field                                                                            |                                                                                                                                                                                                                                                 |
-| -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|Terminal | Introduction to the fundamentals of the command line interface (Unix/Linux) such as navigation, file operation, permissions, package management, text edition, pipes, FIFO, re-directions, environment variables and versioning tools like git. |
-| Python    | Introduction to the language fundamentals in order to execute simple tasks. Understanding the OOP principles and the processes that are required to work with all kinds of files that contain data.                                             |
+The health care company "skinCare" hires you as a freelance data scientist for a short mission.
+Seeing that they pay you an incredible amount of money you accept. Here is the mail you receive:
 
-| Hill                                                                                                                    |                                                                                                                                                                                                                                                                                           |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Data tools | Get familiar with all the necessary libraries such as [NumPy](https://numpy.org/), [Pandas](https://pandas.pydata.org/) and [matplotlib](https://matplotlib.org/) so the preprocessing of data can be done in a quick and "clean" way. You'll also learn how to scrap data from websites. |
-| Data preprocessing | Learn how to preprocess data for a machine learning model, whether it be tabular data or images.                                                                                                                                                                                          |
+```text
+from: sales.skincare.be@gmail.com
+to:   projects@becode.org
 
-| Mountain                                                                                         |                                                                                                                                                                                                                                                                                               |
-| ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Machine Learning | In machine learning, dealing with data is the most time-consuming process, so learning techniques such as cleaning data, histograms, etc, will make the data preparation more accurate. You'll also get familiar with procedures such as regression, classification, model evaluation, etc... |
-| Databases & Deployment | Learn how to store data in databases and to deploy a web service which can be accessed from anywhere in the world using a REST API and Docker.                                                                                                                                                |
-|Deep Learning | Start with building a simple neural network from scratch and finally interact with Keras, PyTorch and OpenCV, will lead you to solve challenges in fields such as Computer Vision and Natural Language Processing (NLP).                                                                      |
+Hi,
 
-## How to thrive at BeCode?
+At skinCare we have more and more demands from companies for a tool that would be able to detect moles that need to be handled by doctors.
 
-Read the following documents:
+Your mission, if you accept it, would be to create an AI that can detect when the mole is dangerous. To be able to use your AI, we want you to create a simple web page where the user could upload a picture of the mole and see the result.
 
-1. Read the [Pedagogical Contract](https://github.com/becodeorg/BeCode/blob/master/educationalcontractAI.md)
-2. If you need a refresher, here is the presentation about the [rules](https://docs.google.com/presentation/d/12NcwJp-x64T5kKnRDdwa1rN54Ab3BZhUUoT28Nv2K9o/edit#slide=id.p1)
+We don't have a web development department in our company, so you will need to handle the UI as well, we don't care about having something amazing on the design side, we just want a proof of concept to show our client that the product has potential. You are free in the technology you want to use.
 
-## Respect for planning: being late & absence
+You will also need to put your application on the internet so we can use it. I guess you know what that means.
 
-In case of **delay**, **absence** or **early leave** (planned or not), you will need to warn us.
+You will find attached to this email the data you need.
 
-In short here is what you do in any of the three cases above:
+If you have any questions, feel free to reply to this mail or send a mail to our department at the following email address: sales.skincare.be@gmail.com
 
-1. Send a message to _both_ coaches on Discord or by email
-2. Warn BeCode through [my.becode.org](https://my.becode.org/):
-   - If you already have some note to justify your absence (e.g. a doctor's note), then send this straight to us using the platform (my.becode.org);
-   - If you know that you are going to obtain such document, tell us when you notify us of your absence. Once you have the document, send it to us through the platform;
-   - When you know that you will have no legal reason for the absence or delay then please let us know <abbr title="As Soon As Possible">ASAP</abbr> as well on Discord. Not showing up or showing up late is considered unprofessional.
+Good luck,
+skinCare sales team
+```
 
-[Reminder](https://github.com/becodeorg/BeCode/blob/master/educationalcontractAI.md#sanctions):
+Analyze the customer's request.
+The dataset provided by the client can be found here: https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000
 
-- 2 unjustified occasions of being late or leaving early is seen as an absence
-- 2 unjustified absences leads to a one-on-one conversation
-- 6 unjustified absences leads to a termination of your contract with us (and the FOREM/VDAB/Bruxelles Formation) and results in you leaving this training permanently.
-- If the absence rate (justified or not) exceeds 20%, BeCode may decide on the final exclusion of the learner.
+Possible disease states are "Melanoma", "Melanocytic nevus", "Basal cell carcinoma", "Actinic keratosis / Bowen’s disease (intraepithelial carcinoma)", "Benign keratosis (solar lentigo / seborrheic keratosis / lichen planus-like keratosis)", "Dermatofibroma", and "Vascular lesion". Approximately 10,000 images provided for training, 200 for validation, 1500 for test.
 
-## Agenda
 
-To keep up to date with the upcoming events, workshops and hackathons remember to check the **BeCode Global Discord server `#events` channel**!
 
-## Vacation and holidays
+Melanocytic nevi (nv)
+Melanoma (mel)
+Benign keratosis-like lesions (bkl)
+Basal cell carcinoma (bcc)
+Actinic keratoses (akiec)
+Vascular lesions (vasc)
+Dermatofibroma (df)
 
-There are 2 vacation blocks during the training:
+value counts:
+0    6705
+1    1113
+2    1099
+3     514
+4     327
+5     142
+6     115
 
-👇
+0    20115
+5    13064
+3    12336
+6    12190
+4    11772
+1    11130
+2    10990
 
-| Dates                        | What are we doing? |
-| ---------------------------- | ------------------ |
-| April 4th -> April 8th | Planned vacation   |
-| July 4th -> July 8thnd | Planned vacation   |
 
-All **Bank Holidays** will be respected as well.
 
-## Requirements
 
-List of minimal requirements for the trainees:
+### Must-have feature
 
-- junior development skills (in any programming language)
-- basic math & statistics knowledge
-- fundamental computer know-how (interested in tech, tech-savvy)
-- problem solver mindset
-- motivated
-- self-learner
+- Understand the requirements from the client.
+- Create a product that answers to their needs.
 
-## Course content
+### Nice-to-have
+- Deployment is done using docker and Heroku
 
-BeCode promotes a learning experience based on _projects rather than lessons_.
-With that in mind this course content has been divided in multiple categories of
-challenges, resources and other tools aiming to teach specific sets of skills.
+### Sample Project Pipeline
+1. Start downloading the files
+2. Analyze your folder contents; create a train, validation and test set.
+3. Do proper preprocessing steps using OpenCV (which steps make sense, which don't, discuss these with your colleagues)
+4. Import and existing model from the [keras models](https://keras.io/api/applications/)
+5. Adjust (or add) the output layer to only contain the number of classes you are interested in.
+6. After building your model, it's time to train them. For a pre-existing model, you might want to first train your added layers by freezing the existing layers. Use the [transfer learning guide](https://keras.io/guides/transfer_learning/) to help you set up an efficient workflow. 
+7. You will use the training set to train, after which you will use your validation set to see what the actual accuracy might be. If it is not sufficient, you will need to adjust your model hyper-parameters (learning rate, number of layers, nodes,...) and train again. Depending on your transfer learning set-up, your training time might be minimal, and you can test more hyper-parameter options (random search, grid search...)
+8. Once your model accuracy is sufficient (you choose what you deem sufficient), you can test on your testing set. You do not use your test set to further tune your hyper-parameters
+9. Plot all the relevant evaluation metrics for your model (confusion matrix, ROC, precision/recall, validation accuracy,...)
+10. Discuss which evaluation metrics are the most important for this challenge
+11. Deploy an application with Flask where the customer can upload an image and get the model prediction
 
-## Target skills
 
-With an ever-growing and changing set of _things to know_ we made choices so
-that, by the end of the training, the learner will have acquired the following
-technical foundations and soft skills.
+### Tips
 
-### Tech skills
+- To have a good accuracy you will need to preprocess your images. OpenCV is amazing for that.
 
-By the end of the common trunk, trainees should have acquired a good
-_infrastructure affinity_, good _coding background_ (with good practices and
-secure coding) and the fundamentals of _ΑΙ_ and _data science_, allowing them to continue
-learning on their own and in the work place.
+### Presentation
 
-More specifically:
+We will randomly select 10 presenters to showcase their project in front of the group.
 
-- Able to deconstruct falsehood.
-- General knowledge, competences and good practices.
-- Able to understand modern tools and techniques.
+- You have to make a nice presentation **with a professional design**.
+- You have **10 minutes** to present (with Q&A). **You can't use more time**, **you can't use less time**.
+- You **CAN'T show code or jupyter notebook** during the presentation.
+- Remember, you present a SaaS (**S**oftware **A**s **A** **S**ervice), so present it like it is.
 
-### Soft skills
 
-- Continuous Learner: Eager to learn, professional learner.
-- Team Player: Helps, asks for help, takes its share of the collective load,
-  give and takes constructive feedback.
-- Reliable: Trustworthy, committed, punctual.
-- Change Enthusiast: Flexible, solution mindset.
+## Deliverables
 
-### Careers
+1. Pimp up the README file:
 
-With this training, our learners should be able to pursue the following career paths, to continue learning while acquiring battlefield experience:
+   - Description
+   - Installation
+   - Usage
+   - (Visuals)
+   - (Contributors)
+   - (Timeline)
+   - (Personal situation)
+   - (Pending things to do)
 
-- **Data analyst** : Data analysts are focused on Business development : they sift through data and seek to identify trends. What stories do the numbers tell? What business decisions can be made based on these insights? They may also create visual representations, such as charts and graphs to better showcase what the data reveals.
-- **Data Scientist** : Data Scientists develop, construct, test and maintain architectures, such as databases and large-scale processing systems.
-- **Machine Learning Engineer** : The ML Engineer is an expert in using data to training models. The models are then used to automate processes like image classification, speech recognition, and market forecasting.
+2. Present your results in front of the group in **10mins max**.
+3. Your fully working proof of concept.
 
-BeCode helps graduates find an internship, hopefully converting into a job that they like, and at the same time, help partner companies staff up with our autonomous, eager to learn and reliable talents.
+### Steps
+
+1. Create the repository
+2. Study the request (What & Why ?)
+3. Identify technical challenges (How ?)
+4. Create the requested product.
+5. Deploy the product.
+
+## Evaluation criteria
+
+| Criteria       | Indicator                                                            | Yes/No |
+| -------------- | -------------------------------------------------------------------- | ------ |
+| 1. Is complete | Your product answers to all the client's demands.                    | [ ]    |
+|                | Your README is detailed as expected.                                 | [ ]    |
+|                | One is able to upload a picture to the website and have it analyzed. | [ ]    |
+|                | The website returns a prediction along with its accuracy.            | [ ]    |
+|                | You present the product well.                                        | [ ]    |
+| 2. Is good     | The repo doesn't contain unnecessary files.                          | [ ]    |
+|                | You used typing.                                                     | [ ]    |
+|                | The presentation is clean.                                           | [ ]    |
+|                | Your code is clean and commented.                                    | [ ]    |
+|                | Your product is easy to use.                                         | [ ]    |
+|                | Your communication with the client was clear.                        | [ ]    |
+
+## Quotes
+
+“Everyone should have health insurance? I say everyone should have health care. I'm not selling insurance.”
+_- Dennis Kucinich_
+
+![You've got this!](https://media.giphy.com/media/eLujANBginsZl8PZZL/giphy.gif)
