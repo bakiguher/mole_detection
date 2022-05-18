@@ -7,16 +7,11 @@ import tensorflow as tf
 from tensorflow.python.keras.models import model_from_json
 from tensorflow.keras.preprocessing import image
 
-Model_json = "./model/model.json"
-Model_weigths = "./model/model.h5"
+Model_json = "./model/modelbm.json"
+Model_weigths = "./model/modelbm.h5"
 labels = {
-    0: 'Melanocytic nevi (nv)',
-    1: 'Melanoma (mel)',
-    2: 'Benign keratosis-like lesions (bkl)',
-    3: 'Basal cell carcinoma (bcc)',
-    4: 'Actinic keratoses (akiec)',
-    5: 'Vascular lesions (vasc)',
-    6: 'Dermatofibroma (df)'
+    0: 'benign',
+    1: 'malignant'
 }
 
 
@@ -39,7 +34,7 @@ def model_predict(img, model):
     Get the image data and return prediction
     '''
    
-    img = img.resize((28, 28))
+    img = img.resize((120, 90))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     preds = model.predict(x)
@@ -68,11 +63,21 @@ def predict():
 
         # Make prediction
         preds = model_predict(img, model)
-        #max probable       
-        pred_probabilty = " % {:.2f}".format(np.amax(preds)*100) 
-        max_index_col = np.argmax(preds)
-                    
-        #get max probabal mole name
+
+
+        preds=preds[0][0]
+        print(preds)
+        max_index_col = np.round(preds,0)
+
+        if preds<0.5:
+            preds=1-preds
+            
+
+        pred_probabilty = " % {:.2f}".format(preds*100)
+        preds=np.round(preds,0)
+        
+                       
+        
         result=labels.get(max_index_col) + pred_probabilty
 
         return jsonify(result=result )

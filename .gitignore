@@ -3,7 +3,10 @@
 *.jpg
 *.csv
 *.whl
+*.xlsx
 moleenv/
 data/
 __pycache__/
 Descriptions/
+_temp/
+images/
