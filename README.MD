@@ -51,6 +51,15 @@ Possible disease states are "Melanoma", "Melanocytic nevus", "Basal cell carcino
 
 
 
+## docker-compose up
+heroku login
+docker ps
+heroku container:login
+heroku container:push web -a moledetect
+heroku container:release web -a moledetect
+
+
+
 Melanocytic nevi (nv)
 Melanoma (mel)
 Benign keratosis-like lesions (bkl)
