@@ -1,6 +1,13 @@
-data/
-__pycache__
+.idea
+.vscode
+*.jpg
 *.csv
-images/
-Descriptions/
+*.whl
+*.xlsx
 moleenv/
+data/
+__pycache__/
+Descriptions/
+_temp/
+IMAGES/
+image_classifier/

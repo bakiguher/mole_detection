@@ -9,4 +9,6 @@ data/
 __pycache__/
 Descriptions/
 _temp/
-images/
+IMAGES/
+.zip
+image_classifier/
