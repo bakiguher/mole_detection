@@ -115,7 +115,15 @@ body {
   
   #pred-result {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #pred-result2 {
+    color: white;
+    font-size: 1rem;
     position: absolute;
     top: 50%;
     left: 50%;

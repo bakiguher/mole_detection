@@ -36,6 +36,7 @@ var imagePreview = document.getElementById("image-preview");
 var imageDisplay = document.getElementById("image-display");
 var uploadCaption = document.getElementById("upload-caption");
 var predResult = document.getElementById("pred-result");
+var predResult2 = document.getElementById("pred-result2");
 var loader = document.getElementById("loader");
 
 //========================================================================
@@ -66,11 +67,13 @@ function clearImage() {
   imagePreview.src = "";
   imageDisplay.src = "";
   predResult.innerHTML = "";
+  predResult2.innerHTML = "";
 
   hide(imagePreview);
   hide(imageDisplay);
   hide(loader);
   hide(predResult);
+  hide(predResult2);
   show(uploadCaption);
 
   imageDisplay.classList.remove("loading");
@@ -91,6 +94,7 @@ function previewFile(file) {
 
     // reset
     predResult.innerHTML = "";
+    predResult2.innerHTML = "";
     imageDisplay.classList.remove("loading");
 
     displayImage(reader.result, "image-display");
@@ -133,7 +137,9 @@ function displayResult(data) {
   // imageDisplay.classList.remove("loading");
   hide(loader);
   predResult.innerHTML = data.result;
+  predResult2.innerHTML = data.predresult;
   show(predResult);
+  show(predResult2);
 }
 
 function hide(el) {
