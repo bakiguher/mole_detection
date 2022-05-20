@@ -145,6 +145,8 @@ More information about the dataset can be found at  https://challenge.isic-archi
 │   Procfile                      : Heroku start application- gunicorn
 │   docker-compose.yml            : Docker file
 |   requirements.txt              : Requirements file
+|   modelbm.ipynb                 : Model creation for benign or malignant
+|   modeltype.ipynb               : Model creation for mole type
 |___             
 │   data                          : data folder for image and csv file 
 │   │                             : DOWNLOAD
