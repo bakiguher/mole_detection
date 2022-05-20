@@ -28,8 +28,8 @@
     <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#website">Website</a></li>
     <li><a href="#preprocess">Preprocess</a></li>
-	<li><a href="#model">Model</a></li>
-    <li><a href="#authors">Authors</a></li>
+	 <li><a href="#models">Model</a></li>
+    
   </ol>
 </details>
 
