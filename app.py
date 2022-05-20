@@ -7,9 +7,11 @@ import tensorflow as tf
 from tensorflow.python.keras.models import model_from_json
 from tensorflow.keras.preprocessing import image
 
+#model for benign or malignant
 Model_json = "./model/modelbm.json"
 Model_weigths = "./model/modelbm.h5"
 
+#model for mole class
 Modelmk_json = "./model/modelmk.json"
 Modelmk_weigths = "./model/modelmk.h5"
 
@@ -31,47 +33,23 @@ labels = {
 
 app = Flask(__name__)
 
-def get_MoleClassifierModel():
+def get_MoleClassifierModel(modeljson,weights):
     '''
-    Function to load saved model and weights
+    Function to load saved model and weights 
     '''
-    model_json = open(Model_json, 'r')
+    model_json = open(modeljson, 'r')
     loaded_model_json = model_json.read()
     model_json.close()
     model = model_from_json(loaded_model_json)
-    model.load_weights(Model_weigths)
-    return model  
-    
-def get_MoleGrupModel():
-    '''
-    Function to load saved model and weights
-    '''
-    model_json = open(Modelmk_json, 'r')
-    loaded_model_json = model_json.read()
-    model_json.close()
-    model = model_from_json(loaded_model_json)
-    model.load_weights(Modelmk_weigths)
+    model.load_weights(weights)
     return model  
 
 
-
-def model_predict(img, model):
+def model_predict(img:image, model,dima:int,dimb:int):
     '''
-    Get the image data and return prediction
+    Get the image data and return predictions
     '''
-   
-    img = img.resize((120, 90))
-    x = image.img_to_array(img)
-    x = np.expand_dims(x, axis=0)
-    preds = model.predict(x)
-    return preds
-
-def model_predictmk(img, model):
-    '''
-    Get the image data and return prediction
-    '''
-   
-    img = img.resize((32, 32))
+    img = img.resize((dima, dimb))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     preds = model.predict(x)
@@ -96,31 +74,27 @@ def predict():
         # Get the image from post request
         img = base64_to_pil(request.json)
         
-        # initialize model
-        model = get_MoleClassifierModel()
-        modelmk=get_MoleGrupModel()
+        # initialize models
+        model = get_MoleClassifierModel(Model_json,Model_weigths)
+        modelmk=get_MoleClassifierModel(Modelmk_json,Modelmk_weigths)
 
-        # Make prediction
-        preds = model_predict(img, model)
-        predsmk=model_predictmk(img,modelmk)
+        # Make predictions
+        preds = model_predict(img, model,120,90)
+        predsmk=model_predict(img,modelmk,32,32)
         
-        predsmk=np.argmax(predsmk)
-        
-        predsmk=labelsmk.get(predsmk) 
-        print(preds,"/",predsmk)
-
         preds=preds[0][0]
-        
-        max_index_col = np.round(preds,0)
+        predsmk=np.argmax(predsmk)
 
         if preds<0.5:
             preds=1-preds
-            
 
+        predsmk=labelsmk.get(predsmk) 
+               
+        max_index_col = np.round(preds,0)
+           
         pred_probabilty = " % {:.2f}".format(preds*100)
         preds=np.round(preds,0)
-        
-                       
+                              
         
         result=labels.get(max_index_col) + pred_probabilty + "-" + predsmk
 
