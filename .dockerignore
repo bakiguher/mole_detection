@@ -13,3 +13,4 @@ IMAGES/
 .zip
 image_classifier/
 utils/
+logs/
