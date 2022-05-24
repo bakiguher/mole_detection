@@ -153,23 +153,23 @@ More information about the dataset can be found at https://challenge.isic-archiv
   *1- class weights library from sklearn*:  Training the model took just a few minutes but classification report on test data was not good.
       class weights:{0: 4.37, 1: 2.78, 2: 1.30, 3: 12.44, 4: 1.28, 5: 0.21, 6: 10.07}
 
-![classification report](/img/cr_weights.jpg)
+![classification report](/visuals/cr_weights.jpg)
 
 
   *2-Randomoversampling from imblearn library*: Training takes around 30 minutes, classification report looks quite good but I believe model saw all the data avaliable and it memorized everything. It has 0.94 precision on test data.
 
 
 Classification Report
-![classification report](/img/cr_oversampling.jpg)
+![classification report](/visuals/cr_oversampling.jpg)
 
 Confusion Matrix :
-![confusion matrix](/img/cm_oversampling.jpg)
+![confusion matrix](/visuals/cm_oversampling.jpg)
 
 Incorrect Classification Percentages:
-![incorrect](/img/incr_rand_overs.jpg)
+![incorrect](/visuals/incr_rand_overs.jpg)
 
   *3-Resampling from sklearn library* Training takes around 5 minutes Accuracy is 0.90 but presicion is at 0.75 
-  ![classification report](/img/cr_nsample.jpg)
+  ![classification report](/visuals/cr_nsample.jpg)
   
 
 I cleaned the hair on the moles with opencv. Loading 10000 images to memory may cause some problems 
