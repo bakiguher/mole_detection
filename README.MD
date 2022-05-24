@@ -148,6 +148,7 @@ More information about the dataset can be found at https://challenge.isic-archiv
 - other one is for Type of the mole. This one is used on app
 
 **Data is imbalanced I used different aproaches** 
+
   *1- class weights library from sklearn*:  Training the model took just a few minutes but classification report on test data was not good.
       class weights:{0: 4.37, 1: 2.78, 2: 1.30, 3: 12.44, 4: 1.28, 5: 0.21, 6: 10.07}
 
