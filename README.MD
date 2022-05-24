@@ -47,11 +47,9 @@
 
 <li><a  href="#getting-started">Getting Started</a></li>
 
-<li><a  href="#website">Website</a></li>
-
 <li><a  href="#preprocess">Preprocess</a></li>
 
-<li><a  href="#models">Model</a></li>
+<li><a  href="#model">Model</a></li>
 
 </ol>
 
@@ -75,7 +73,7 @@ The project will be available on a web app where the user could upload a picture
 The project will be upload on internet with flask, doker and heroku.
  
 
-### Built With
+#### Built With
 
   
 
@@ -188,60 +186,35 @@ I cleaned the hair on the moles with opencv. Loading 10000 images to memory may 
 
   
 
-│ README.md : This file
-
-│ app.py : Flask app start
-
-│ util.py : some utility functions
-
-│ Dockerfile : Docker file
-
-│ Procfile : Heroku start application- gunicorn
-
-│ docker-compose.yml : Docker file
-
-| requirements.txt : Requirements file
-
-| modelbm.ipynb : Model creation for benign or malignant
-
-| modeltype.ipynb : Model creation for mole type
-
+│ README.md           : This file
+│ app.py              : Flask app start
+│ util.py             : some utility functions
+│ Dockerfile          : Docker file
+│ Procfile            : Heroku start application- gunicorn
+│ docker-compose.yml  : Docker file
+| requirements.txt    : Requirements file
+| modelbm.ipynb       : Model creation for benign or malignant
+| modeltype.ipynb     : Model creation for mole type
 |___
-
-│ data : data folder for image and csv file
-
-│ │ : DOWNLOAD
-
+│ data                : data folder for image and csv file
+│ │ : DOWNLOADAD FROM KAGGLE
 │___
-
 | model
-
-│ │ modelbm.h5 : Weights of the model for benign/malignant classification.
-
-│ │ modelmk.h5 : Weights of the model for mole type classification.
-
-│ │ modelbm.json : Model structure for benign/malignant classification.
-
-│ │ modelmk.json : Model structure for mole type classification.
-
-  
-
+│ │ modelbm.h5        : Weights of the model for benign/malignant classification.
+│ │ modelmk.h5        : Weights of the model for mole type classification.
+│ │ modelbm.json      : Model structure for benign/malignant classification.
+│ │ modelmk.json      : Model structure for mole type classification.
 │___
-
 | templates
-
-│ | base.html : Template for flask
-
-│ | index.html : Template for flask
-
+│ | base.html         : Template for flask
+│ | index.html        : Template for flask
 │___
-
 | static
-
-│ | main.css : css file for flask
-
-│ | main.js : javascript file for flask
-
+│ | main.css          : css file for flask
+│ | main.js           : javascript file for flask
+│___
+| visuals
+| | : IMAGES OF SOME REPORTS
   
   
 
