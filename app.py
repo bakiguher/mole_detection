@@ -92,7 +92,7 @@ def predict():
         labelsof_type = list(labelsmk.values())
         predictions = predsmk.tolist()
 
-
+        #Round the results
         dict1 = dict(zip(labelsof_type, np.around(predictions[0],2)))
                   
         
@@ -106,23 +106,20 @@ def predict():
         for key, value in sorted_predictions.items():
             sorted_predictions[key] = '% ' + str(value)
         
+        # take top 2 predictions
         top2_predictions = take(2, sorted_predictions.items())
-
         predictions= top2_predictions
- 
 
+        # get percentages and names from dictionary and combine them
         it_values = iter(predictions.values())    
         firstv, secondv = next(it_values), next(it_values)    
         it_keys = iter(predictions.keys())
         firstk, secondk = next(it_keys), next(it_keys)
+       
+        prediction1= firstv + " " + firstk
+        prediction2=secondv +" " + secondk
         
-        predictions= firstv + " " + firstk
-        predresult=secondv +" " + secondk
-        
-
-        
-
-        return jsonify(result=predictions,predresult=predresult)
+        return jsonify(result=prediction1,predresult=prediction2)
     return None
 
 
