@@ -160,16 +160,20 @@ More information about the dataset can be found at https://challenge.isic-archiv
 
 
 Classification Report
+
 ![classification report](/visuals/cr_oversampling.jpg)
 
 Confusion Matrix :
+
 ![confusion matrix](/visuals/cm_oversampling.jpg)
 
 Incorrect Classification Percentages:
+
 ![incorrect](/visuals/incr_rand_overs.jpg)
 
   *3-Resampling from sklearn library* Training takes around 5 minutes Accuracy is 0.90 but presicion is at 0.75 
-  ![classification report](/visuals/cr_nsample.jpg)
+
+![classification report](/visuals/cr_nsample.jpg)
   
 
 I cleaned the hair on the moles with opencv. Loading 10000 images to memory may cause some problems 
