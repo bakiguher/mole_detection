@@ -34,7 +34,9 @@ app = Flask(__name__)
 
 
 def take(n, iterable):
-    "Return first n items of the iterable as a dict"
+    '''
+        Return first n items of the iterable as a dict"
+    '''
     return dict(islice(iterable, n))
 
 
@@ -62,6 +64,8 @@ def model_predict(img: image, model, dima: int, dimb: int):
 
     return preds
 
+#Initialize Model
+modelmk = get_MoleClassifierModel(Modelmk_json, Modelmk_weigths)
 
 @app.route('/', methods=['GET'])
 def index():
@@ -79,10 +83,6 @@ def predict():
     if request.method == 'POST':
         # Get the image from post request
         img = base64_to_pil(request.json)
-
-        # initialize models
-        #model = get_MoleClassifierModel(Model_json,Model_weigths)
-        modelmk = get_MoleClassifierModel(Modelmk_json, Modelmk_weigths)
 
         # Make predictions
         predsmk = model_predict(img, modelmk, 32, 32)
@@ -123,3 +123,4 @@ def predict():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=False, host='0.0.0.0', port=port)
+

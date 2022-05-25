@@ -196,6 +196,7 @@ I cleaned the hair on the moles with opencv. Loading 10000 images to memory may 
 | requirements.txt    : Requirements file
 | modelbm.ipynb       : Model creation for benign or malignant
 | modeltype.ipynb     : Model creation for mole type
+| mole_detect_prs.pdf : Presentation
 |___
 │ data                : data folder for image and csv file
 │ │ : DOWNLOADAD FROM KAGGLE
